@@ -8,5 +8,5 @@ env:
 phases:
   build:
     commands:
-      - echo "Uploading templates to S3"
+      - echo "Uploading templatesto S3"
       - aws s3 cp $TEMPLATE_DIR s3://$S3_BUCKET/templates/ --recursive
