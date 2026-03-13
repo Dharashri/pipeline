@@ -1,0 +1,12 @@
+{
+  "SchemaVersion": "1.0",
+  "ProductId": "prod-w5yadb4sue3ow",
+  "ProvisioningArtifactParameters": {
+    "Name": "v1.0",
+    "Description": "Initial production version of EC2 CloudFormation template",
+    "Type": "CLOUD_FORMATION_TEMPLATE",
+    "Info": {
+      "LoadTemplateFromPath": "template/CFT_V1.yml"
+    }
+  }
+}
