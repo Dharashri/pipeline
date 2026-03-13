@@ -1,21 +1,40 @@
 version: 0.2
 
+env:
+  variables:
+    TEMPLATE_FILE: template/CFT.yaml
+    S3_BUCKET: my-basic-cft-bucket
+    PRODUCT_ID: prod-w5yadb4sue3ow
+    PROVISIONING_ARTIFACT_ID: pa-npt4ctbywwgya
+    REGION: us-east-1
+
 phases:
+
   install:
+    runtime-versions:
+      python: 3.11
     commands:
-      - echo Installing dependencies...
-      - npm install
+      - echo "Installing dependencies"
+      - pip install awscli
+
   pre_build:
     commands:
-      - echo Running pre-build checks...
-      - npm run lint
+      - echo "Validating CloudFormation Template"
+      - aws cloudformation validate-template --template-body file://$TEMPLATE_FILE --region $REGION
+
   build:
     commands:
-      - echo Building the project...
-      - npm run build
+      - echo "Uploading template to S3"
+      - aws s3 cp $TEMPLATE_FILE s3://$S3_BUCKET/templates/
+
   post_build:
     commands:
-      - echo Build completed successfully!
+      - echo "Updating Service Catalog Product"
+      - aws servicecatalog update-provisioned-product \
+          --provisioned-product-name my-product \
+          --product-id $PRODUCT_ID \
+          --provisioning-artifact-id $PROVISIONING_ARTIFACT_ID \
+          --region $REGION
 
 artifacts:
   files:
