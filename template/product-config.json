@@ -7,7 +7,6 @@
     "Description": "Production version of EC2 stack"
   },
   "Properties": {
-    "TemplateFile": "template/CFT.yml"
-  },
-  "Type": "CLOUD_FORMATION_TEMPLATE"
+    "TemplateFilePath": "template/CFT.yml"
+  }
 }
