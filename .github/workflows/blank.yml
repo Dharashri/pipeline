@@ -1,4 +1,4 @@
-name: Mirror to CodeCommit
+name: Mirror GitHub Repo to CodeCommit
 
 on:
   push:
@@ -10,20 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Configure Git for CodeCommit
         run: |
           git config --global credential.helper '!aws codecommit credential-helper $@'
           git config --global credential.UseHttpPath true
-          git remote add codecommit https://git-codecommit.us-east-1.amazonaws.com/v1/repos/GitAWSPipeline
 
-      - name: Push to CodeCommit
-        run: git push codecommit main
+      - name: Add CodeCommit Remote
+        run: |
+          git remote add codecommit https://git-codecommit.${{ secrets.AWS_REGION }}.amazonaws.com/v1/repos/GitAWSPipeline
+
+      - name: Mirror Repository
+        run: |
+          git push --mirror codecommit
