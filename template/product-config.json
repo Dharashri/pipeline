@@ -1,6 +1,7 @@
 {
   "SchemaVersion": "1.0",
   "ProductId": "prod-w5yadb4sue3ow",
+  "ProductType": "CLOUD_FORMATION_TEMPLATE",
   "ProvisioningArtifactParameters": {
     "Name": "v1.0",
     "Description": "Production version of EC2 stack"
