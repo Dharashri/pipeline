@@ -3,7 +3,7 @@
   "ProductId": "prod-w5yadb4sue3ow",
   "ProductType": "CLOUD_FORMATION_TEMPLATE",
   "ProductVersionName": "First-cft.yml",
-  "ProductVersionDescription": "CFT for S3 bucket",
+  "ProductVersionDescription": "CFT for S3 bucket T!",
   "Properties": {
     "TemplateFilePath": "template/test.yml"
   }
