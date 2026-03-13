@@ -5,6 +5,6 @@
   "ProductVersionName": "First-cft.yml",
   "ProductVersionDescription": "CFT for S3 bucket",
   "Properties": {
-    "TemplateFilePath": "template/CFT.yml"
+    "TemplateFilePath": "template/test.yml"
   }
 }
