@@ -1,1 +1,8 @@
-test
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Basic CloudFormation template to create an S3 bucket
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: tees-the-bucket-bucket
