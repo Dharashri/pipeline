@@ -3,10 +3,10 @@
   "ProductId": "prod-w5yadb4sue3ow",
   "ProvisioningArtifactParameters": {
     "Name": "v1.0",
-    "Description": "Initial production version EC2 CloudFormation template",
-    "Type": "CLOUD_FORMATION_TEMPLATE",
-    "Info": {
-      "LoadTemplateFromPath": "template/CFT_V1.yml"
-    }
-  }
+    "Description": "Production version of EC2 stack"
+  },
+  "Properties": {
+    "TemplateFile": "template/CFT.yml"
+  },
+  "Type": "CLOUD_FORMATION_TEMPLATE"
 }
