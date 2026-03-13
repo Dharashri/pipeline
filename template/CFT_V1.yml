@@ -5,4 +5,4 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: tees-the-bucket-bucket
+      BucketName: tees-the-bucket-buket
